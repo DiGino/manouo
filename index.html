@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+<div id="app" class="container">
+  <header class="flex">
+    <div class="logo"><h1>Manouo</h1></div>
+    <nav class="menu">
+      <ul>
+        <li class="menu_item">
+          <a>Menu</a>
+        </li>
+        <li class="menu_item">Bienvenue <b>{{user}}</b></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="section_boissons">
+      <div class="boissons _padding">
+        <h2>Choisis une boisson</h2>
+          <ul v-for="boisson in boissons">
+              <li class="boisson-li">
+                <span class="boisson">{{boisson}}</span>
+              <span><a @click="choisir(boisson)" class="select">Choisir</a></span>
+            </li>
+          </ul>
+      </div>
+
+      <div class="choix_boissons _padding">
+        <h2 v-if="choix.length > 0">Je boirai du :</h2>
+          <div v-for="le_choix in choix">
+          <span class="boisson">{{le_choix}}</span>
+          </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+  </footer>
+</div>
+  <script>
+
+      var app = new Vue({
+        el: "#app",
+        data: {
+          user: "Atavi",
+          boissons: ["Déha", "Tchoukoutou", "Sodabi", "Liha"],
+          choix: [],
+        },
+        methods: {
+          choisir: function(boisson){
+            this.choix.push(boisson);
+          }
+        }
+      })
+  </script>
+</body>
+
+</html>
