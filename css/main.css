@@ -64,6 +64,16 @@ a {
   margin-right: 0.3em;
 }
 
+.boissons {
+  margin-right: 2em
+}
+
+.choix_boissons {
+	border: 1px solid;
+	padding: 0 3em;
+	border-radius: 1em;
+}
+
 .select {
   background: #A68D5B;
   padding: 0.5em;

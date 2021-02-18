@@ -35,7 +35,7 @@
       <div class="boissons _padding">
         <h2>Choisis une boisson</h2>
           <ul v-for="boisson in boissons">
-              <li class="boisson-li">
+              <li class="boisson-li flex">
                 <span class="boisson">{{boisson}}</span>
               <span><a @click="choisir(boisson)" class="select">Choisir</a></span>
             </li>
@@ -43,7 +43,7 @@
       </div>
 
       <div class="choix_boissons _padding">
-        <h2 v-if="choix.length > 0">Je boirai du :</h2>
+        <h2>Je boirai du :</h2>
           <div v-for="le_choix in choix">
           <span class="boisson">{{le_choix}}</span>
           </div>
