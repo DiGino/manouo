@@ -17,25 +17,25 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-<div id="app" class="container">
+<div id="app" class="container mt-4">
 
- <h2>We gone<h2>
+ <h2 class="h2">Qu'as tu à raconter aujourd'hui ?<h2>
 
-   <div class="my-4">
-     <span v-if="tweet.length < max_length">
-       {{maxCharText}}
+   <form class="row g-3" @submit.prevent="submitTweet">
+   <div class="mb-3">
+     <textarea cols="30" rows="10" class="form-control" maxlength="200" placeholder="Envoie une histoire mec !" v-model="tweet"></textarea>
+   </div>
+
+   <div class="my-1">
+     <span class="fs-5" v-if="tweet.length < max_length">
+       <mark>{{maxCharText}}</mark>
      </span>
-     <span class="alert alert-danger" role="alert" v-else>
+     <span class="alert alert-danger fs-5" role="alert" v-else>
       {{errorMessage}}
      </span>
    </div>
 
-   <form class="row g-3" @submit.prevent="submitTweet">
-   <div class="mb-3">
-     <label for="tweetbox" class="form-label">Tweet Box</label>
-     <textarea cols="30" rows="10" class="form-control" maxlength="200" placeholder="Envoie un tweet mec !" v-model="tweet"></textarea>
-   </div>
-     <button type="submit" class="btn btn-primary mb-3">Tweeter</button>
+     <button type="submit" class="btn btn-primary mb-3">Publier</button>
   </form>
 
 
