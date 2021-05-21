@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -7,72 +7,48 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/vue.js"></script>
 
-    <script src="js/vue.js"></script>
 </head>
 
 <body>
   <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
+
 <div id="app" class="container">
-  <header class="flex">
-    <div class="logo"><h1>Manouo</h1></div>
-    <nav class="menu">
-      <ul>
-        <li class="menu_item">
-          <a>Menu</a>
-        </li>
-        <li class="menu_item">Bienvenue <b>{{user}}</b></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
+ <h2>We gone<h2>
 
-    <section class="section_boissons">
-      <div class="boissons _padding">
-        <h2>Choisis une boisson</h2>
-          <ul v-for="boisson in boissons">
-              <li class="boisson-li flex">
-                <span class="boisson">{{boisson}}</span>
-              <span><a @click="choisir(boisson)" class="select">Choisir</a></span>
-            </li>
-          </ul>
-      </div>
+   <div class="my-4">
+     <span v-if="tweet.length < max_length">
+       {{maxCharText}}
+     </span>
+     <span class="alert alert-danger" role="alert" v-else>
+      {{errorMessage}}
+     </span>
+   </div>
 
-      <div class="choix_boissons _padding">
-        <h2>Je boirai du :</h2>
-          <div v-for="le_choix in choix">
-          <span class="boisson">{{le_choix}}</span>
-          </div>
-      </div>
+   <form class="row g-3" @submit.prevent="submitTweet">
+   <div class="mb-3">
+     <label for="tweetbox" class="form-label">Tweet Box</label>
+     <textarea cols="30" rows="10" class="form-control" maxlength="200" placeholder="Envoie un tweet mec !" v-model="tweet"></textarea>
+   </div>
+     <button type="submit" class="btn btn-primary mb-3">Tweeter</button>
+  </form>
 
-    </section>
 
-  </main>
 
-  <footer>
+  <ul v-for="tweet in tweets">
+    <li>{{tweet}}</lI>
+  </ul>
 
-  </footer>
 </div>
-  <script>
 
-      var app = new Vue({
-        el: "#app",
-        data: {
-          user: "Atavi",
-          boissons: ["Déha", "Tchoukoutou", "Sodabi", "Liha"],
-          choix: [],
-        },
-        methods: {
-          choisir: function(boisson){
-            this.choix.push(boisson);
-          }
-        }
-      })
-  </script>
+
+    <script src="js/vue-router.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
