@@ -19,6 +19,46 @@
 
 <div id="app" class="container mt-4">
 
+<!-- Connexion au compte -->
+<div class="card">
+<div class="card-body">
+  <h2>Créer un compte</h2>
+  <form action="" @submit.prevent="registerAccount">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom
+        <span>{{name.length + '/' + max_text_length}}</span>
+      </label>
+      <input type="text" name="name" id="texte" class="form-control" v-model="name" :maxlength="max_text_length" required>
+    </div>
+    <div class="mb-3">
+      <label for="Email" class="form-label">Email
+        <span>{{email.length + '/' + max_text_length}}</span>
+      </label>
+      <input type="email" name="email" id="email" class="form-control" v-model="email" maxlength="max_text_length" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe
+        <span>{{password.length + '/' + max_pass_length}}</span>
+      </label>
+      <input type="password" name="password" id="password" class="form-control" v-model="password" maxlength="16" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Créer un compte</button>
+  </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
  <h2 class="h2">Qu'as tu à raconter aujourd'hui ?<h2>
 
    <form class="row g-3" @submit.prevent="submitTweet">
@@ -41,7 +81,7 @@
 
 
   <ul v-for="tweet in tweets">
-    <li>{{tweet}}</lI>
+    <li class="fs-5">{{tweet}}</lI>
   </ul>
 
 </div>
